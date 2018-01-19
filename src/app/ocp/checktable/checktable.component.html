@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <app-order-item
+      *ngFor="let order of orders; let i = index;"
+      [order]="order"
+      [index]="i"></app-order-item>
+  </div>
+</div>
