@@ -14,6 +14,8 @@ export class ChecktableComponent
   orders: Order[];
   subscription: Subscription;
 
+  currentOrder: Order;
+
   constructor(private os: OrdersService) {}
 
   ngOnInit() {
@@ -24,6 +26,7 @@ export class ChecktableComponent
         }
       );
     this.orders = this.os.getOrders();
+    this.currentOrder = this.os.getOrder(0);
   }
 
   ngOnDestroy() {

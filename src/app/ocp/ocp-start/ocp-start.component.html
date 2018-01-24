@@ -1,23 +1,45 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3"></div>
+    <div class="col-md-2"></div>
     <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="../../assets/img/checktable.png" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Überprüfung</h5>
-          <p class="card-text">Gibt es Probleme mit Bestellungen, dann tauchen sie hier auf.</p>
-          <button class="btn btn-primary" type="button" (click)="navigate('checktable')">OCP</button>
+      <ng-template [ngIf]="checktableActive">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../assets/img/checktable.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Überprüfung</h5>
+            <p class="card-text">Gibt es Probleme mit Bestellungen, dann tauchen sie hier auf.</p>
+            <button class="btn btn-primary" type="button" (click)="navigate('checktable/0')">Check</button>
+          </div>
         </div>
-      </div>
+      </ng-template>
+      <ng-template [ngIf]="!checktableActive">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../assets/img/checktable.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Überprüfung</h5>
+            <p class="card-text">Sehr gut, es gibt aktuell keine Probleme mit Bestellungen.</p>
+            <button class="btn btn-primary disabled" type="button">Check</button>
+          </div>
+        </div>
+      </ng-template>
     </div>
     <div class="col-md-3">
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="../../../assets/img/picklisten.png" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">Picklisten</h5>
-          <p class="card-text">Erstellung und Bearbeitung von Picklisten.</p>
-          <button class="btn btn-primary" type="button" (click)="navigate('picklists')">OCP</button>
+          <p class="card-text">Übersicht zur Erstellung und Bearbeitung von aktuellen Picklisten.</p>
+          <button class="btn btn-primary" type="button" (click)="navigate('picklists')">Picklisten</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../../assets/img/deliverySpread.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Versandverteilung</h5>
+          <p class="card-text">Verteilung der Bestellungen auf verschiedene Versanddienstleister.</p>
+          <button class="btn btn-primary" type="button" (click)="navigate('picklists')">Versand</button>
         </div>
       </div>
     </div>

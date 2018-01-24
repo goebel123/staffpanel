@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {OrdersService} from '../orders.service';
 
 @Component({
   selector: 'app-ocp-start',
@@ -9,9 +10,13 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class OcpStartComponent
   implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  checktableActive: boolean;
 
-  ngOnInit() {}
+  constructor(private router: Router, private route: ActivatedRoute, private os: OrdersService) {}
+
+  ngOnInit() {
+    this.checktableActive = this.os.checkIfActive();
+  }
 
   navigate(feature: string) {
     this.router.navigate([feature], {relativeTo: this.route});

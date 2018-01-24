@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-3">
+    <h4>Bestellung - {{order.orderId}}</h4>
+
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">EAN</th>
+        <th scope="col">Artikelnummer</th>
+        <th scope="col">Bestellmenge</th>
+        <th scope="col">Artikelmenge (Kolli)</th>
+        <th scope="col">Lieferdienst</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of order.items; let i = index" [ngClass]="{'itemBuggy': item.marked}">
+        <ng-template [ngIf]="item.marked">
+          <td>{{i}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.ean}}</td>
+          <td>{{item.artNr}}</td>
+          <td>{{item.orderedAmount}}</td>
+          <td>{{item.amount}}</td>
+          <td>{{item.delivery}}</td>
+          <td><button class="btn btn-success" type="button" (click)="edit()">edit</button></td>
+        </ng-template>
+
+        <ng-template [ngIf]="!item.marked">
+          <td>{{i}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.ean}}</td>
+          <td>{{item.artNr}}</td>
+          <td>{{item.orderedAmount}}</td>
+          <td>{{item.amount}}</td>
+          <td>{{item.delivery}}</td>
+          <td></td>
+        </ng-template>
+      </tr>
+      </tbody>
+    </table>
+
+    <button  class="btn btn-primary" type="button" (click)="nextOrder()">Next</button>
+  </div>
+</div>

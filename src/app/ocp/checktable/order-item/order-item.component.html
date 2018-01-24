@@ -1,11 +1,28 @@
 <div class="row">
-  <h4>{{order.orderId}}</h4>
-  <ul class="list-group list-group-flush">
-    <li
-      class="list-group-item"
-      *ngFor="let item of order.items;"
-      item></li>
-  </ul>
+  <h4>Bestellung - {{order.orderId}}</h4>
+
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">EAN</th>
+      <th scope="col">Artikelnummer</th>
+      <th scope="col">Bestellmenge</th>
+      <th scope="col">Artikelmenge (Kolli)</th>
+      <th scope="col">Lieferdienst</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of order.items; let i = index" [ngClass]="{'itemBuggy' : item.marked}">
+      <td>{{i}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.ean}}</td>
+      <td>{{item.artNr}}</td>
+      <td>{{item.orderedAmount}}</td>
+      <td>{{item.amount}}</td>
+      <td>{{item.delivery}}</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
-
-

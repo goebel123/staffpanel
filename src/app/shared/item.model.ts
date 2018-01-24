@@ -6,7 +6,8 @@ export class Item {
     public name: string,
     public amount: number,
     public orderedAmount: number,
-    public delivery: string) {}
+    public delivery: string,
+    public marked: boolean) {}
 
   /**
    * amount is only for kollis (lieferant in wawi) "Kugelschreiber blau 5er Pack"
